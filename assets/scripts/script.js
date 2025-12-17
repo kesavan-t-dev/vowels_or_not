@@ -14,47 +14,27 @@ function search() {
     
     if (input.length === 0) {
         errmsg = 'Please enter a sentence';
-    } 
+    }
     
-    else if (input.includes(" ")) { 
+    else if (input.length > 1) {
         errmsg = 'Please enter only one word';
-    } 
+    }
     else {
-       
-        let hasNumber = false;
-        let hasSpecial = false;
+        const ch = input;
 
-        for (const ch of input) {
-            if (ch >= '0' && ch <= '9') {
-                hasNumber = true;
-                break; 
-            }
-            
-            if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
-                hasSpecial = true;
-                break;
-            }
-        }
-
-        if (hasNumber) {
+        
+        if (ch >= '0' && ch <= '9') {
             errmsg = 'Numbers are not allowed';
-        } 
-        else if (hasSpecial) {
+        }
+        
+        else if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
             errmsg = 'Special characters are not allowed';
-        } 
+        }
         else {
-           
-            const values = [];
+            
             const vowels = ['a','i','e','o','u','A','E','I','O','U'];
-
-            for (const ws of input) {
-                if (vowels.includes(ws)) {
-                    values.push(ws);
-                }
-            }
-
-            if (values.length > 0) {
-                resultmsg = `Vowels are: ${values.join(', ')}`;
+            if (vowels.includes(ch)) {
+                resultmsg = `Vowels are: ${ch}`;
             } else {
                 errmsg = 'No Vowels Found';
             }
