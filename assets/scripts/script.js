@@ -12,23 +12,23 @@ function search() {
     let resultmsg = "";
 
     
-    if (input.length === 0) {
+    if (input.length === 0) {   
         errmsg = 'Please enter a sentence';
     }
     
-    else if (input.length > 1) {
-        errmsg = 'Please enter only one word';
+    else if (/[^a-zA-Z0-9\s]/.test(input)) {
+        errmsg = 'Special characters are not allowed';
     }
     else {
         const ch = input;
 
         
-        if (ch >= '0' && ch <= '9') {
+        if (/\d/.test(input)) {
             errmsg = 'Numbers are not allowed';
         }
         
-        else if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
-            errmsg = 'Special characters are not allowed';
+        else if (input.length > 1) {
+            errmsg = 'Please enter only one word';
         }
         else {
             
