@@ -14,24 +14,17 @@ function search() {
     
     if (input.length === 0) {   
         errmsg = 'Please enter a sentence';
-    }
-    
-    else if (/[^a-zA-Z0-9\s]/.test(input)) {
+    } else if (/[^a-zA-Z0-9\s]/.test(input)) {
         errmsg = 'Special characters are not allowed';
-    }
-    else {
+    } else {
+
         const ch = input;
 
-        
         if (/\d/.test(input)) {
             errmsg = 'Numbers are not allowed';
-        }
-        
-        else if (input.length > 1) {
+        } else if (input.length > 1) {
             errmsg = 'Please enter only one word';
-        }
-        else {
-            
+        } else {
             const vowels = ['a','i','e','o','u','A','E','I','O','U'];
             if (vowels.includes(ch)) {
                 resultmsg = `Vowels are: ${ch}`;
