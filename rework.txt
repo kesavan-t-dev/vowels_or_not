@@ -1,0 +1,2 @@
+avoid nested if,
+variable declarationshould be at the top
